@@ -1,8 +1,11 @@
 let myhttp = require("http");
 
+let hostname = "127.0.0.1";
+let port = 3000;
+
 let myserver = myhttp.createServer(
 
-    function (myrequest, myresponce) {
+    function (myrequest, myresponse) {
         console.log(myrequest.url);
 
         let mytext;
@@ -14,7 +17,7 @@ let myserver = myhttp.createServer(
 
         myresponse.writeHead(200, { "Content-Type": "text/plain" });
 
-        myresponce.end(mytext + "\n");
+        myresponse.end(mytext + "\n");
     }
 );
 
