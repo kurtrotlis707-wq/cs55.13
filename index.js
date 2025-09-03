@@ -8,20 +8,19 @@ let myserver = myhttp.createServer(
 
         let mytext;
         if (myrequest.url === '/hey') {
-            mytext = "hello there";
+            mytext = "hello ethere";
         } else {
             mytext = "Nope";
         }
-        if (myrequest.url === '/ten') {
-            mytext = "10";
-        } else {
-            mytext = "Nope";
-        }
-        if (myrequest.url === '/one') {
-            mytext = "1";
-        } else {
-            mytext = "Nope";
-        }
+
+
+
+
+
+
+
+
+
 
         myresponse.writeHead(200, { "Content-Type": "text/plain" });
 
