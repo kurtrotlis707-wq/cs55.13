@@ -12,6 +12,16 @@ let myserver = myhttp.createServer(
         } else {
             mytext = "Nope";
         }
+        if (myrequest.url === '/ten') {
+            mytext = "10";
+        } else {
+            mytext = "Nope";
+        }
+        if (myrequest.url === '/one') {
+            mytext = "1";
+        } else {
+            mytext = "Nope";
+        }
 
         myresponse.writeHead(200, { "Content-Type": "text/plain" });
 
