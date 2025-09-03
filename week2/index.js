@@ -1,17 +1,46 @@
-let myhttp = require("http");
+const myhttp = require("http");
+
+const fs = require("fs").promises;
+
+const requestListener = function (myrequest, myresponse) {
+    console.log(myrequest.url);
+
+    if (myrequest.url === '/') {
+        fs.readFile(__dirname + "/page.html")
+
+            .then(
+                contents => {
+                    myresponse.setHeader("Content-Type", "text/html; charset=UTF-8");
+
+                    myresponse.writeHead(200);
+
+                    myresponse.end(contents);
+                });
+    } else {
+
+        fs.readFile(__dirname + "data.json")
+
+            .then(
+
+                contents => {
+
+                    myresponse.setHeader("Content-Type", "application/json; charset=UTF-8");
+
+                    myresponse.writeHead(200);
+
+                    myresponse.end(contents);
+                });
+    }
+};
+
 
 
 let myserver = myhttp.createServer(
 
-    function (myrequest, myresponse) {
-        console.log(myrequest.url);
+    requestListener
+);
 
-        let mytext;
-        if (myrequest.url === '/hey') {
-            mytext = "hello ethere";
-        } else {
-            mytext = "Nope";
-        }
+myserver.listen(8080, "127.0.0.1");
 
 
 
@@ -19,12 +48,9 @@ let myserver = myhttp.createServer(
 
 
 
+myresponse.writeHead(200, { "Content-Type": "text/plain" });
 
-
-
-        myresponse.writeHead(200, { "Content-Type": "text/plain" });
-
-        myresponse.end(mytext + "\n");
+myresponse.end(mytext + "\n");
     }
 );
 
