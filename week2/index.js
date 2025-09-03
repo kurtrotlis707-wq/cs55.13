@@ -2,9 +2,15 @@ const myhttp = require("http");
 
 const fs = require("fs").promises;
 
+// let myserver = myhttp.createServer( {
+
+// function( myrequest, myresponse ) {
 const requestListener = function (myrequest, myresponse) {
     console.log(myrequest.url);
 
+    // console.log( myrequest.url );
+
+    // let mytext;
     if (myrequest.url === '/') {
         fs.readFile(__dirname + "/page.html")
 
@@ -18,7 +24,7 @@ const requestListener = function (myrequest, myresponse) {
                 });
     } else {
 
-        fs.readFile(__dirname + "data.json")
+        fs.readFile(__dirname + "/data.json")
 
             .then(
 
@@ -32,9 +38,6 @@ const requestListener = function (myrequest, myresponse) {
                 });
     }
 };
-
-
-
 let myserver = myhttp.createServer(
 
     requestListener
@@ -45,13 +48,3 @@ myserver.listen(8080, "127.0.0.1");
 
 
 
-
-
-
-myresponse.writeHead(200, { "Content-Type": "text/plain" });
-
-myresponse.end(mytext + "\n");
-    }
-);
-
-myserver.listen(8080, "127.0.0.1");
