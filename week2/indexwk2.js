@@ -12,7 +12,7 @@ const requestListener = function (myrequest, myresponse) {
     // Check if the request is for the root path '/'
     if (myrequest.url === '/') {
         // Read the HTML file asynchronously
-        fs.readFile(__dirname + "/page.html")
+        fs.readFile(__dirname + "/pagewk2.html")
             .then(
                 contents => {
                     // Set the response header to indicate HTML content with UTF-8 encoding
@@ -26,7 +26,7 @@ const requestListener = function (myrequest, myresponse) {
                 });
     } else {
         // For any other URL, read the JSON data file
-        fs.readFile(__dirname + "/data.json")
+        fs.readFile(__dirname + "/datawk2.json")
             .then(
                 contents => {
                     // Set the response header to indicate JSON content with UTF-8 encoding

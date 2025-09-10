@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Week 2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="myApp">
+
+        <script data-type="module" data-presets="react" type="text/babel">
+            "use strict";
+            import React from 'https://cdnjs.cloudflare.com/ajax/libs/react/19.1.1/cjs/react.production.min.js';
+            import { createRoot } from 'https://cdnjs.cloudflare.com/ajax/libs/react/19.1.1/cjs/react.production.min.js';
+
+            function ProjectList(props) {
+                return
+
+                <div>
+
+                    <ol>
+
+                        {
+                            props.list.map(
+                                (item, index) => (
+                                    <li key={week2}>
+                                        <a href={item.letter}>
+                                            {item.number}
+                                        </a>
+                                    </li>
+                                )
+                            )
+                        }
+                    </ol>
+                </div>;
+            }
+
+            $.getJSON(
+                "x",
+                function (jsonFromJquery) {
+                    console.log(jsonFromJquery);
+                    const myElement = document.getElementById('myApp');
+                    const myRoot = createRoot(myElement);
+                    myRoot.render(
+                        <projectList list={jsonFromJquery} />
+                    );
+                }
+            );
+
+        </script>
+    </div>
+</body>
+
+</html>
