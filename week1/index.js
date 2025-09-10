@@ -9,15 +9,37 @@ let myserver = myhttp.createServer(
         console.log(myrequest.url);
 
         // Initialize variable to store response text
-        let mytext;
+        let mytext; {
 
-        // Check if the request URL is '/hey'
-        if (myrequest.url === '/hey') {
-            // Set response text for the '/hey' route
-            mytext = "hello ethere";
-        } else {
-            // Set default response text for all other routes
-            mytext = "Nope";
+            // Check if the request URL is '/hey'
+            if (myrequest.url === '/hey') {
+                // Set response text for the '/hey' route
+                mytext = "hello there";
+            } else {
+                // Set default response text for all other routes
+                mytext = "Nope";
+            }
+        }
+        {
+
+            if (myrequest.url === '/yes') {
+                // Set response text for the '/hey' route
+                mytext = "yes";
+            } else {
+                // Set default response text for all other routes
+                mytext = "Nope";
+            }
+        }
+
+        {
+
+            if (myrequest.url === '/no') {
+                // Set response text for the '/hey' route
+                mytext = "no";
+            } else {
+                // Set default response text for all other routes
+                mytext = "Nope";
+            }
         }
 
         // Set HTTP response headers
